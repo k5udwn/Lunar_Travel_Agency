@@ -32,7 +32,10 @@ function resume(){
 function stop(){
     is_stop=false;
 }
+
+//controller.model.orbitlist[i].x .y .z earthDist moonDist time(Date型)
 function earth_gl(){
+    var spf=0.1;
 var earth_r=6378.137;
 var moon_r=3474.3;
 var earth_moon=384400;
@@ -132,63 +135,25 @@ moon.position = new THREE.Vector3(0,earth_moon/earth_r,0);
 scene.add(moon);
          
 //軌道を表示
-function getTextFile (fname) {
-    var text = null;
-    var ajax = new XMLHttpRequest();
-    with (ajax) {
-	/*@if(1) onreadystatechange @else@*/ onload /*@end@*/ =
-	    function () { readyState == 4 && status == 200 && (text = responseText); };
-	open('GET', fname, false);
-	send(null);
-    };
-    return text;
-}
-var text2=getTextFile('data/plots.txt');
-        
-var lines=text2.split("\n");
 var point;
 var vect;
 var linepoint = new THREE.Geometry();
-for(var i=0;i<lines.length;i++){
+    var orbit;
+for(var i=0;i<controller.model.orbitList.length;i++){
     //for(var i=0;i<2;i++){
     //console.log(lines[i]);
-    point=lines[i].split("   ");//t,x,y,z,he,hm;
     // 座標を作成
-    for( var j = 0 , m = point.length; j < m ; j++ ){//trimも同時に行っておく
-	point[j] = point[j].replace( /(^\s+)|(\s+$)/g , ""  );
-    }
-            
+    orbit = controller.model.orbitList[i];
             
             
     vect = new THREE.Vector3(
-			     point[1]/earth_r,
-			     point[2]/earth_r,
-                                     point[3]/earth_r
+                             orbit.x/earth_r*2,
+                             orbit.y/earth_r*2,
+                             orbit.x/earth_r*2
 			     );
-            
-    /*    console.log(earth_r);
-            console.log(point[0]);
-            console.log(point[2]);
-            console.log(Number(point[0]));
-             console.log(Number(point[1]));
-            console.log(parseFloat(point[0]));
-            console.log(Number(point[0])/earth_r);
-    */ 
-    /*
-            vect = new THREE.Vector3(
-                                     Math.random() * 2 - 1,
-                                     Math.random() * 2 - 1,
-                                     Math.random() * 2 - 1
-                                     );
-    */
-    //vect.normalize();
-    //vect.multiplyScalar( Math.random() * 10 + 450 );
-            
-    // *************************************************
-    // Vertex(頂点) オブジェクトは、Vector3 を 
-    // position というプロパテに持つオブジェクト
-    // vertices は geometry 内の 頂点用配列
-    // *************************************************
+    console.log(i,orbit.x,orbit.y,orbit.z);
+    //vect= new THREE.Vector3(i/2+0.5,i/2+0.5,i/2+0.5);
+    
     linepoint.vertices.push( vect );
 }
 line = new THREE.Line(
@@ -226,26 +191,74 @@ linesMaterial = new THREE.LineBasicMaterial( {color: 0x0000ff, linewidth: 1} );
     
           
         
-//探査機　Airliner
+//Airliner
 var ag = new THREE.SphereGeometry(0.5, 8, 8);
 var am = new THREE.MeshPhongMaterial({
 	color: 0xffffff, specular: 0xcccccc,ambient: 0xffd400});
 var Airliner = new THREE.Mesh(ag, am);
     scene.add(Airliner);
+    
+    var bg = new THREE.SphereGeometry(0.5, 8, 8);
+    var bm = new THREE.MeshPhongMaterial({
+                                         color: 0xffffff, specular: 0xcccccc,ambient: 0x00ff00});
+    //var balloon = new THREE.Mesh(bg, bm)；
+    //scene.add(balloon);
+    //var fevent=new Array{1,1,1,1,1};
+    var fcount=0;
     function render() {
-    if((is_stop==false) && (fcount< orbitpoints.length)){
-	fcount++;
-    }
-    requestAnimationFrame(render);
-    // カメラの状態を更新
-    controls.update();
-    Sleep(spf); //flame管理
-    Airliner.position = new THREE.Vector3(orbitpoints[i].x,orbitpoints[i].y,orbitpoints[i].z);
+        requestAnimationFrame(render);
+        var orbit = controller.model.orbitList[fcount];
+        //Air の位置更新
+        //Airliner.position = new THREE.Vector3(orbit.x,orbit.y,orbit.z);
+        
+        /*
+        if(is_stop==true){//バルーンの点滅
+                if()
+        }*/
+        
+        
+        // カメラの状態を更新
+        controls.update();
+      Sleep(spf); //flame管理
+        
     //earth.rotation.y = 0.3 * (+new Date - baseTime) / 1000;
             
     //イベント
-    if( ){//ISS //距離式
-	//イベÃmera.aspect = window.innerWidth / window.innerHeight;
-	camera.updateProjectionMatrix();
+    //    controller.dispatchEvent("ISS");
+    //if(fevent[0]==0 && orbitpoints[fcount]. > 400){//ISS //距離式
+      //  fevent[0]=1;
+      /*  baloon.position=new Vector3(orbit.x,
+                                    orbit.y,
+                                    orbit.z);//balloonを位置へ
+        //イベント読み込み
+        
+        //Stop();
+        //
+    //}
+        /*
+    else if(){//静止衛星軌道
+    }
+    else if(){//時間半分
+    }
+    else if(){//地球と月が同サイズ
+    }
+    else if(){//かぐやの軌道
+    }
+    */
+    //index
+   // controller.setCurrentTime(controller.model.)
+    renderer.render(scene, camera);
+    //if((is_stop==false) && (fcount< orbitpoints.length)){
+            fcount++;
+      //  }
+    };
+    render();
+    window.addEventListener('resize', function() {
+                                renderer.setSize(window.innerWidth, window.innerHeight);
+                                camera.aspect = window.innerWidth / window.innerHeight;
+                                camera.updateProjectionMatrix();
     }, false );
+
 }
+
+earth_gl()
