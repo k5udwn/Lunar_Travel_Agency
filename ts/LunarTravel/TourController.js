@@ -19,7 +19,10 @@ var lunartravel;
         };
         TourController.prototype.onModelComplete = function () {
             //alert("complete");
-            $.getScript("js/earth_gl.js");
+            var script = document.createElement("script");
+            script.type = "text/javascript";
+            script.src = "js/earth_gl.js";
+            document.body.appendChild(script);
         };
         return TourController;
     })();
