@@ -170,21 +170,21 @@ xpoints.vertices.push( new THREE.Vector3( -10, 0, 0 ) );
 xpoints.vertices.push( new THREE.Vector3(  10, 0, 0 ) );
 linesMaterial = new THREE.LineBasicMaterial( {color: 0xff0000, linewidth: 1} );
 x_line= new THREE.Line(xpoints, linesMaterial);
-scene.add( x_line );
+//scene.add( x_line );
           
 var ypoints = new THREE.Geometry();
 ypoints.vertices.push( new THREE.Vector3( 0, -10, 0 ) );
 ypoints.vertices.push( new THREE.Vector3( 0,  10, 0 ) );
 linesMaterial = new THREE.LineBasicMaterial( {color: 0x00ff00, linewidth: 1} );
 y_line= new THREE.Line(ypoints, linesMaterial);
-scene.add( y_line );
+//scene.add( y_line );
           
 var zpoints = new THREE.Geometry();
 zpoints.vertices.push( new THREE.Vector3( 0, 0,  10 ) );
 zpoints.vertices.push( new THREE.Vector3( 0, 0, -10 ) );
 linesMaterial = new THREE.LineBasicMaterial( {color: 0x0000ff, linewidth: 1} );
     z_line= new THREE.Line(zpoints, linesMaterial);
-    scene.add(z_line);
+  //  scene.add(z_line);
     var controls = new THREE.OrbitControls(camera);
     controls.center = new THREE.Vector3(0, 0, 0);
     var baseTime = +new Date;
@@ -207,7 +207,7 @@ var Airliner = new THREE.Mesh(ag, am);
     var fcount=0;
     function render() {
         requestAnimationFrame(render);
-        var orbit = controller.model.orbitList[fcount];
+        //var orbit = controller.model.orbitList[fcount];
         //Air の位置更新
         //Airliner.position = new THREE.Vector3(orbit.x,orbit.y,orbit.z);
         
@@ -219,9 +219,9 @@ var Airliner = new THREE.Mesh(ag, am);
         
         // カメラの状態を更新
         controls.update();
-      Sleep(spf); //flame管理
+      //Sleep(spf); //flame管理
         
-    //earth.rotation.y = 0.3 * (+new Date - baseTime) / 1000;
+    earth.rotation.y = 0.3 * (+new Date - baseTime) / 1000;
             
     //イベント
     //    controller.dispatchEvent("ISS");
@@ -249,7 +249,7 @@ var Airliner = new THREE.Mesh(ag, am);
    // controller.setCurrentTime(controller.model.)
     renderer.render(scene, camera);
     //if((is_stop==false) && (fcount< orbitpoints.length)){
-            fcount++;
+            //fcount++;
       //  }
     };
     render();
