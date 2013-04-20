@@ -262,10 +262,10 @@ var Airliner = new THREE.Mesh(ag, am);
     
        
     
-    else if(Nevent==3 ){//地球と月がだいたい同サイズ//Roughly
+    else if(Nevent==3 && orbit2.earthDist>earth_moon*4/5){//地球と月がだいたい同サイズ//Roughly
             Nevent++;
-            controller.dispatchEvent("tobashi");
-            console.log(fcount,"tobashi");
+            controller.dispatchEvent("onaji");
+            console.log(fcount,"onaji");
         stop();
     }
     else if((Nevent==4) && (orbit2.moonDist < 100)){//かぐやの軌道
