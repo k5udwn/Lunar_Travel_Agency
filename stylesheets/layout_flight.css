@@ -1,0 +1,140 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
+
+/* Table of Content
+==================================================
+#Site Styles
+#Page Styles
+#Media Queries
+#Font-Face */
+
+/* #Site Styles
+================================================== */
+a {	
+	text-decoration: none; 
+	-webkit-transition: background 0.2s ease-in;
+	-moz-transition: background 0.2s ease-in;
+	-o-transition: background 0.2s ease-in;
+	-ms-transition: background 0.2s ease-in;
+	transition: background 0.2s ease-in;
+}
+
+h1, h2, h3, h4, h6 {
+	font-family: 'bebas_neueregular';
+}
+
+h1:not(.logo) {
+	color: #FFFFFF;
+	font-size: 90px;
+	text-align: center;
+	line-height: 100px;
+}
+
+h2 {
+	color: #FFFFFF;
+	font-size: 62px;
+	text-align: center;
+}
+
+h3 {
+	font-size: 32px;
+	line-height: 32px;
+	text-transform: uppercase;
+	margin-bottom: 44px;
+}
+
+h4 {
+	color: #FFFFFF;
+	font-size: 31px;
+	line-height: 34px;
+	text-align: center;
+}
+
+h5{
+	color: #333333;
+	font-size: 26px;
+	line-height: 34px;
+}
+
+h6{
+	font-size: 18px;
+	line-height: 18px;
+	text-transform: uppercase;
+	margin-bottom: 12px;
+}
+
+p {
+	color: #333333;
+	line-height: 23px;
+}
+
+.size18 {
+	font-size: 18px;
+	line-height: 29px;
+}
+
+.size22 {
+	font-size: 22px;
+	line-height: 31px;
+	margin-bottom: 23px;
+}
+
+.size24 {
+	font-size: 24px;
+	line-height: 38px;
+	text-align: center;
+}
+
+a.linkblue {
+	color: #1AB0FE;
+	text-decoration: underline;
+}
+
+a.linkblue:hover, section.blog .one-third p a:hover {
+	background-color: rgba(203, 237, 255, 0.45);
+}
+
+.bold { font-weight: 700; }
+.fontaver{ font-family: 'averregular'; }
+.par60{ padding-right: 60px; }
+.mb0{ margin-bottom: 0px !important; }
+.mr20{ margin-right: 20px !important; }
+.pb0{ padding-bottom: 0px !important; }
+.pmb34 p{ margin-bottom: 22px; }
+.pmb34 p:last-child{ margin-bottom: 0px; }
+.textcenter, .textcenter *{ text-align: center; }
+.nodisplay{ display: none !important; }
+.pright{ float: right; }
+span.tm{ display: inline-block; }
+
+.line{
+	border-bottom: 1px solid #EDEDED;
+	clear: both;
+	display: block;
+	margin: 73px 0px;
+}
+
+body {
+	background-color: #FFFFFF;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 12px;
+}
+
+.columnscenter {
+	display: block;
+	float: none;
+	margin: 0 auto !important;
+}
+
+/* #Page Styles
+================================================== */
+
+.frame_up {
+	background: #000;
+}
+
+.frame_down {
+	background: #000;
+	position:absolute;
+	bottom:0;
+	width:100%;
+}
