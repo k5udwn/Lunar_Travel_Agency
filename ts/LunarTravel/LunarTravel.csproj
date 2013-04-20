@@ -18,25 +18,23 @@
   <ItemGroup>
     <Content Include="app.css" />
     <Content Include="default.htm" />
+    <Content Include="Utils.js">
+      <DependentUpon>Utils.ts</DependentUpon>
+    </Content>
+    <TypeScriptCompile Include="Utils.ts" />
+    <TypeScriptCompile Include="FlightController.ts" />
+    <Content Include="FlightController.js">
+      <DependentUpon>FlightController.ts</DependentUpon>
+    </Content>
     <Content Include="jquery.d.ts" />
-    <Content Include="main.js">
-      <DependentUpon>main.ts</DependentUpon>
-    </Content>
-    <Content Include="MainController.js">
+    <Content Include="TourController.js">
       <DependentUpon>TourController.ts</DependentUpon>
-    </Content>
-    <TypeScriptCompile Include="NetService.ts" />
-    <Content Include="NetService.js">
-      <DependentUpon>NetService.ts</DependentUpon>
     </Content>
     <Content Include="tour.js">
       <DependentUpon>tour.ts</DependentUpon>
     </Content>
     <TypeScriptCompile Include="tour.ts" />
     <TypeScriptCompile Include="TourController.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <TypeScriptCompile Include="main.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -79,7 +77,7 @@
   </PropertyGroup>
   <Import Project="$(VSToolsPath)\TypeScript\Microsoft.TypeScript.targets" />
   <PropertyGroup>
-    <PostBuildEvent>tsc $(ProjectDir)\main.ts -out ../../../js/main.js
-tsc $(ProjectDir)\tour.ts -out ../../../js/tour.js</PostBuildEvent>
+    <PostBuildEvent>tsc $(ProjectDir)\tour.ts -out ../../../js/tour.js
+tsc $(ProjectDir)\FlightController.ts -out ../../../js/flight.js</PostBuildEvent>
   </PropertyGroup>
 </Project>

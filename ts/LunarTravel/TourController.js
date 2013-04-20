@@ -14,6 +14,7 @@ var lunartravel;
         TourController.prototype.setCurrentTime = function (time) {
         };
         TourController.prototype.dispatchEvent = function (type) {
+            window.top.postMessage(type, this.model.domain);
         };
         TourController.prototype.showInfo = function (imageSrc, message) {
         };
@@ -28,7 +29,9 @@ var lunartravel;
     })();
     lunartravel.TourController = TourController;    
     var TourModel = (function () {
-        function TourModel() { }
+        function TourModel() {
+            this.domain = "http://localhost/";
+        }
         TourModel.prototype.loadOrbit = function (fileName) {
             var _this = this;
             var url = this.apiDir + fileName + ".orbit";

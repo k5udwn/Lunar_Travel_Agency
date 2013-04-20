@@ -244,8 +244,8 @@ var Airliner = new THREE.Mesh(ag, am);
          */
         //イベント読み込み
         console.log("ISS");
-        //controller.dispatchEvent("ISS");
-        //Stop();
+        controller.dispatchEvent("ISS");
+        stop();
     }
         /*
     else if(Nevent <2 && orbit2.earthDist > 35786){//静止衛星軌道

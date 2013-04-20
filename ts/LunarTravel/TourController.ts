@@ -18,7 +18,7 @@ module lunartravel {
         }
 
         dispatchEvent(type: string): void {
-
+            window.top.postMessage(type, this.model.domain);
         }
 
         showInfo(imageSrc: string, message: string): void {
@@ -35,6 +35,7 @@ module lunartravel {
     }
 
     export class TourModel {
+        domain: string = "http://localhost/";
         targetPointLatLang: LatLng;
         targetName: string;
         targetID: string;

@@ -1,5 +1,4 @@
-X:\ts\LunarTravel\bin\LunarTravel.dll
-X:\ts\LunarTravel\bin\LunarTravel.pdb
 X:\ts\LunarTravel\obj\Debug\LunarTravel.dll
 X:\ts\LunarTravel\obj\Debug\LunarTravel.pdb
-X:\ts\LunarTravel\obj\Debug\LunarTravel.csprojResolveAssemblyReference.cache
+X:\ts\LunarTravel\bin\LunarTravel.dll
+X:\ts\LunarTravel\bin\LunarTravel.pdb
