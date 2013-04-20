@@ -240,7 +240,11 @@ var Airliner = new THREE.Mesh(ag, am);
                                     orbit.z);//balloonを位置へ
          */
         //イベント読み込み
+<<<<<<< Updated upstream
         console.log("ISS");
+=======
+        console.log(fcount,"ISS");
+>>>>>>> Stashed changes
         controller.dispatchEvent("ISS");
         stop();
     }
