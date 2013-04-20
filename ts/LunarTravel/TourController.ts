@@ -7,7 +7,7 @@ module lunartravel {
         constructor() {
             this.model = new TourModel();
             this.model.apiDir = "../api/data/";
-            this.model.loadOrbit("0-2012-01-01");
+            this.model.loadOrbit("0-2030-04-21");
             this.model.complete = () => {
                 this.onModelComplete();
             }
