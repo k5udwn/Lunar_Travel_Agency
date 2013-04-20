@@ -37,6 +37,7 @@ function stop(){
 function earth_gl(){
     var spf=0.1;
 var earth_r=6378.137;
+    var earth_d=12756;
 var moon_r=3474.3;
 var earth_moon=384400;
 var nstar=10000;
@@ -120,7 +121,7 @@ var material = new THREE.MeshPhongMaterial({
         
 var earth = new THREE.Mesh(geometry, material);
 earth.doubleSided=true;
-earth.rotation.x=-90.0;
+earth.rotation.y=168.0;
 scene.add(earth);
         
         
@@ -131,7 +132,7 @@ var material2 = new THREE.MeshPhongMaterial({
 	map: THREE.ImageUtils.loadTexture('images/moon.png') });
         
 var moon = new THREE.Mesh(geometry2, material2);
-moon.position = new THREE.Vector3(0,earth_moon/earth_r,0);
+moon.position = new THREE.Vector3(-365037.0/earth_d,6386.0/earth_d,-569.0/earth_d);
 scene.add(moon);
          
 //軌道を表示
@@ -145,13 +146,13 @@ for(var i=0;i<controller.model.orbitList.length;i++){
     // 座標を作成
     orbit = controller.model.orbitList[i];
             
-            
+    console.log(i,orbit.x,orbit.y,orbit.z,orbit.earthDist,orbit.moonDist);
     vect = new THREE.Vector3(
-                             orbit.x/earth_r*2,
-                             orbit.y/earth_r*2,
-                             orbit.x/earth_r*2
+                             orbit.x/earth_d,
+                             orbit.y/earth_d,
+                             orbit.z/earth_d
 			     );
-    console.log(i,orbit.x,orbit.y,orbit.z);
+    console.log(i,orbit.x,orbit.y,orbit.z,orbit.earthDist,orbit.moonDist);
     //vect= new THREE.Vector3(i/2+0.5,i/2+0.5,i/2+0.5);
     
     linepoint.vertices.push( vect );
@@ -170,21 +171,22 @@ xpoints.vertices.push( new THREE.Vector3( -10, 0, 0 ) );
 xpoints.vertices.push( new THREE.Vector3(  10, 0, 0 ) );
 linesMaterial = new THREE.LineBasicMaterial( {color: 0xff0000, linewidth: 1} );
 x_line= new THREE.Line(xpoints, linesMaterial);
-//scene.add( x_line );
+scene.add( x_line );
           
 var ypoints = new THREE.Geometry();
 ypoints.vertices.push( new THREE.Vector3( 0, -10, 0 ) );
 ypoints.vertices.push( new THREE.Vector3( 0,  10, 0 ) );
 linesMaterial = new THREE.LineBasicMaterial( {color: 0x00ff00, linewidth: 1} );
 y_line= new THREE.Line(ypoints, linesMaterial);
-//scene.add( y_line );
+scene.add( y_line );
           
 var zpoints = new THREE.Geometry();
 zpoints.vertices.push( new THREE.Vector3( 0, 0,  10 ) );
 zpoints.vertices.push( new THREE.Vector3( 0, 0, -10 ) );
-linesMaterial = new THREE.LineBasicMaterial( {color: 0x0000ff, linewidth: 1} );
+    linesMaterial = new THREE.LineBasicMaterial( {color: 0x0000ff, linewidth: 1} );
     z_line= new THREE.Line(zpoints, linesMaterial);
-  //  scene.add(z_line);
+    
+    scene.add(z_line);
     var controls = new THREE.OrbitControls(camera);
     controls.center = new THREE.Vector3(0, 0, 0);
     var baseTime = +new Date;
@@ -221,7 +223,7 @@ var Airliner = new THREE.Mesh(ag, am);
         controls.update();
       //Sleep(spf); //flame管理
         
-    earth.rotation.y = 0.3 * (+new Date - baseTime) / 1000;
+    //earth.rotation.y = 0.3 * (+new Date - baseTime) / 1000;
             
     //イベント
     //    controller.dispatchEvent("ISS");
@@ -251,6 +253,7 @@ var Airliner = new THREE.Mesh(ag, am);
     //if((is_stop==false) && (fcount< orbitpoints.length)){
             //fcount++;
       //  }
+        
     };
     render();
     window.addEventListener('resize', function() {
