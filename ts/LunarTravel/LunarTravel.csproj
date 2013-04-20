@@ -18,9 +18,22 @@
   <ItemGroup>
     <Content Include="app.css" />
     <Content Include="default.htm" />
+    <Content Include="jquery.d.ts" />
     <Content Include="main.js">
       <DependentUpon>main.ts</DependentUpon>
     </Content>
+    <Content Include="MainController.js">
+      <DependentUpon>TourController.ts</DependentUpon>
+    </Content>
+    <TypeScriptCompile Include="NetService.ts" />
+    <Content Include="NetService.js">
+      <DependentUpon>NetService.ts</DependentUpon>
+    </Content>
+    <Content Include="tour.js">
+      <DependentUpon>tour.ts</DependentUpon>
+    </Content>
+    <TypeScriptCompile Include="tour.ts" />
+    <TypeScriptCompile Include="TourController.ts" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="main.ts" />
@@ -65,4 +78,8 @@
     <TypeScriptModuleKind>AMD</TypeScriptModuleKind>
   </PropertyGroup>
   <Import Project="$(VSToolsPath)\TypeScript\Microsoft.TypeScript.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>tsc $(ProjectDir)\main.ts -out ../../../js/main.js
+tsc $(ProjectDir)\tour.ts -out ../../../js/tour.js</PostBuildEvent>
+  </PropertyGroup>
 </Project>
