@@ -25,7 +25,6 @@ h1, h2, h3, h4, h6 {
 h1:not(.logo) {
 	color: #FFFFFF;
 	font-size: 90px;
-	text-align: center;
 	line-height: 100px;
 }
 
@@ -117,6 +116,9 @@ body {
 	background-color: #FFFFFF;
 	font-family: 'Open Sans', sans-serif;
 	font-size: 12px;
+	position: absolute;
+	width:100%;
+	height:100%;
 }
 
 .columnscenter {
@@ -128,13 +130,64 @@ body {
 /* #Page Styles
 ================================================== */
 
-.frame_up {
+#header {
 	background: #000;
+height: 150px;
+text-align: left;
+top: 0px;
+height: 100px;
+left: 0px;
+right: 0px;
 }
 
-.frame_down {
+#orbit {
+	background: #639;
+	height:900px;
+}
+
+#info {
 	background: #000;
-	position:absolute;
-	bottom:0;
-	width:100%;
+bottom: 0px;
+left: 0px;
+color: #FFF;
+height: 200px;
+right: 0px;
+}
+
+#info_date {
+	background: #F00;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	height: 50px;
+}
+
+#info_picture {
+	background: #3F3;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	height: 400px;
+	width: 400px;
+	float:left;
+}
+
+#info_description {
+	background: #09C;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	height: 400px;
+	left: 50%;
+	float: left;
+}
+
+.layer {
+	position : absolute;
+}
+
+
+#moonMap {
+	background-color: #ff000;
 }
