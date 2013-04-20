@@ -24,6 +24,7 @@
 
 	<!-- Styling
 	================================================== -->
+    <link href="css/normalize.css" rel="stylesheet" type="text/css"/>
 	<link rel="stylesheet" href="stylesheets/base.css">
 	<link rel="stylesheet" href="stylesheets/skeleton.css">
 	<link rel="stylesheet" href="stylesheets/layout.css">
@@ -31,23 +32,63 @@
 	
 	<!-- Favicons
 	================================================== -->
-	<link rel="shortcut icon" href="images/favicon.ico">
-	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
-	<script src="http://www.google.com/jsapi?key=AIzaSyDyacTiTY64PaPyxDJ0ed8Yk8ASfGF4Z3g" type="text/javascript"></script>
-    <link href="javascripts/jquery/jquery.css" rel="stylesheet" type="text/css" />
+	
+    
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css' />
+	<script type="text/javascript" src="js/modernizr.custom.79639.js"></script>
+    
+	<link href="css/datepicker.css" rel="stylesheet" type="text/css"/>	
+	<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui-1.8.18.custom.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('#datepicker').datepicker({
+				inline: true,
+				//nextText: '&rarr;',
+				//prevText: '&larr;',
+				showOtherMonths: true,
+				//dateFormat: 'dd MM yy',
+				dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+				//showOn: "button",
+				//buttonImage: "img/calendar-blue.png",
+				//buttonImageOnly: true,
+			});
+		});
+	</script>
+   
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script type="text/javascript">
+
+			function DropDown(el) {
+				this.dd = el;
+				this.initEvents();
+			}
+			DropDown.prototype = {
+				initEvents : function() {
+					var obj = this;
+
+					obj.dd.on('click', function(event){
+						$(this).toggleClass('active');
+						event.stopPropagation();
+					});	
+				}
+			}
+
+			$(function() {
+
+				var dd = new DropDown( $('#dd') );
+
+				$(document).click(function() {
+					// all dropdowns
+					$('.wrapper-dropdown-5').removeClass('active');
+				});
+
+			});
+
+		</script>
 </head>
 <body>
-	
-	<header>
-		<div class="container">
-			<div class="sixteen columns">
-				
-			</div>
-		</div>
-	</header>
 	
 	<div class="container">
 		<div class="sixteen columns">
@@ -58,6 +99,7 @@
 	<section class="banner home">
 		<div>
 			<div class="container">
+            	<div class="logo_banner"></div>
 				<div class="sixteen columns">
 					<hgroup>
 						<h1>Fly Me to the Moon</h1>
@@ -76,56 +118,52 @@
 				<div class="par60 pmb34">
 					<h3>Book A FLight</h3>
 					<p class="size22">Please choose your destination:</p>
-                    
+                    <p align="left"><div id="dd" class="wrapper-dropdown-5" tabindex="1" align="left">Sea of Tranquility
+						<ul class="dropdown">
+							<li><a><i class=""></i>Ocean of Storms</a></li>
+							<li><a href="#"><i class=""></i>Fra Mauro</a></li>
+							<li><a href="#"><i class=""></i>Hadley Rille</a></li>
+                            <li><a href="#"><i class=""></i>Descartes Highlandse</a></li>
+                            <li><a href="#"><i class=""></i>Taurus-Littrow</a></li>
+						</ul>
+					</div></p>
 					<p>Depending on your destination, travel cost may change.</p>
                     <p class="size22">Departure date:</p>
-                    <div id="datepicker"></div>
-                    <input type="text" id="datepicker_value" />
+                    <p><div id="datepicker"></div></p>
+					
 					<p>Due to lunar phasing constraints, some dates might not be available.</p>
+                    <p class="learn"><a href="#" class="button medium orange">Go!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="spritesheet arrowbottom"></span></a></p>
 				</div>
 			</section>
 			<section class="eight columns">
 				<ul class="features">
-					<li class="design">
-						<span class="icn"><span class="spritesheet icndesign"></span></span>
-						<h6>Set up your journey</h6>
-						<p>A large choice of destinations and a perfect timing.</p>
-					</li>
 					<li class="development">
-						<span class="icn"><span class="spritesheet icndevelopment"></span></span>
+						<span class="icn"><span class="spritesheet2 icn1"></span></span>
 						<h6>Lift off!</h6>
 						<p>D-Day. Let's fly to the Moon!</p>
 					</li>
 					<li class="branding">
-						<span class="icn"><span class="spritesheet icnbranding"></span></span>
+						<span class="icn"><span class="spritesheet2 icn2"></span></span>
 						<h6>Travel</h6>
 						<p>Depends on your departure date.</p>
 					</li>
 					<li class="experience">
-						<span class="icn"><span class="spritesheet icnexperience"></span></span>
+						<span class="icn"><span class="spritesheet2 icn3"></span></span>
 						<h6>Land on the Moon</h6>
 						<p>This is it. No description yet...</p>
 					</li>
+                     <li class="experience">
+						<span class="icn"><span class="spritesheet2 icn4"></span></span>
+						<h6>Moon walk!</h6>
+						<p>No description yet...</p>
+					</li>
                     <li class="experience">
-						<span class="icn"><span class="spritesheet icnexperience"></span></span>
+						<span class="icn"><span class="spritesheet2 icn5"></span></span>
 						<h6>Enjoy!</h6>
 						<p>No description yet...</p>
 					</li>
 				</ul>
 			</section>
-		</div>
-	</section>
-	
-	<section id="menu" class="menu nodisplay">
-		<div class="container">
-			<div class="sixteen columns">
-				<a href="index.html">Home</a>
-				<a href="about_us/index.html">About us</a>
-				<a href="process/index.html">Process</a>
-				<a href="our_work/index.html">Our Work</a>
-				<a href="http://blog.ideaware.co">Idea Blog<span class="tm">&trade;</span></a>
-				<a href="contact_us/index.html">Contact Us</a>
-			</div>
 		</div>
 	</section>
 	
@@ -135,10 +173,6 @@
 				<ul class="social-media">
 					<li><a href="http://twitter.com/lunartravelagency" alt="Twitter"><span class="spritesheet icntw"></span></a></li>
 					<li><a href="https://www.facebook.com/lunartravelagency" alt="Facebook"><span class="spritesheet icnfb"></span></a></li>
-					<li><a href="http://dribbble.com/tags/lunartravelagency" alt="Dribbble"><span class="spritesheet icndribbble"></span></a></li>
-					<li><a href="http://pinterest.com/lunartravelagency/" alt="Pinterest"><span class="spritesheet icnpinterest"></span></a></li>
-					<li><a href="http://www.linkedin.com/company/lunartravelagency" alt="Linkedin"><span class="spritesheet icnlinledin"></span></a></li>
-					<li><a href="http://blog.lunartravelagency.com/rss" alt="RSS"><span class="spritesheet icnrss"></span></a></li>
 				</ul>
 				<p class="size18">We're a team of engineering students, designers, and space enthusiast.<br/>
                 We are currently participating to the Space Apps Challenge 2013.</p>
@@ -238,26 +272,12 @@
 	</script>
 	
 	<script type="text/javascript">
-setTimeout(function(){var a=document.createElement("script");
-var b=document.getElementsByTagName("script")[0];
-a.src=document.location.protocol+"//dnn506yrbagrg.cloudfront.net/pages/scripts/0011/6001.js?"+Math.floor(new Date().getTime()/3600000);
-a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
-</script>
-
-	<script type="text/javascript" src="javascripts/jquery/jquery.js"></script>
-	<script type="text/javascript" src="javascripts/jquery/jquery.ui.js"></script>
-    
-    <script type="text/javascript">
-$().ready(function() {
-
-$("#datepicker").datepicker({
-	onSelect: function(dateText, inst) { 
-		$("#datepicker_value").val(dateText);
-	}
-});
-
-});
-</script>
+	setTimeout(function(){var a=document.createElement("script");
+	var b=document.getElementsByTagName("script")[0];
+	a.src=document.location.protocol+"//dnn506yrbagrg.cloudfront.net/pages/scripts/0011/6001.js?"+Math.floor(new Date().getTime()/3600000);
+	a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+	</script>
+		
 
 	
 	<!-- End Document
