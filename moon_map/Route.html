@@ -15,7 +15,10 @@
 <script src="button.js" type="text/javascript"></script>
 <script src="calculatedDistance.js" type="text/javascript"></script>
 <script src="PlaceMarker.js" type="text/javascript"></script>
-
+<link rel="stylesheet" href="../stylesheets/base.css">
+	<link rel="stylesheet" href="../stylesheets/skeleton.css">
+	<link rel="stylesheet" href="../stylesheets/layout_flight.css">
+	<link rel="stylesheet" href="../stylesheets/fonts.css">
 <link href="./moon.css" rel="stylesheet" type="text/css" />
 </head>
 <body bgcolor="#000000" onload='init()' onload='initLatLon()' onload='getTextFile()'>
@@ -30,22 +33,19 @@
 <input type="button" value="初期位置" onclick="lookAtInit()">
 </form>
 
-<table border="1" cellpadding="5" cellspacing="0">
-<tr>
-<th style="background:#ccccff">目的地</th>
-<td style="background:#ffffff" width="400"><script type="text/javascript" >returnName();</script></td>
-</tr>
-<tr>
-<th style="background:#ccccff">場所</th>
-<td style="background:#ffffff" width="450"><script type="text/javascript" >returnPlace();</script></td>
-</tr>
-<th style="background:#ccccff">到着地点からの距離</th>
-<td style="background:#ffffff" width="450"><script type="text/javascript" >returnDest();</script></td>
-</tr>
-<tr>
-<th style="background:#ccccff">所要日数</th>
-<td style="background:#ffffff" width="450"><script type="text/javascript" >returnDay();</script></td>
-</tr>
-</table>
+<div id="moon_details">
+	<div id="moon_details_left">Destination</div>
+    <div id="moon_details_right"><script type="text/javascript" >returnName();</script></div>
+    
+    <div id="moon_details_left">Location</div>
+    <div id="moon_details_right"><script type="text/javascript" >returnPlace();</script></div>
+    
+    <div id="moon_details_left">Distance from the point of arrival</div>
+    <div id="moon_details_right"><script type="text/javascript" >returnDest();</script></div>
+    
+    <div id="moon_details_left">Number of days required</div>
+    <div id="moon_details_right"><script type="text/javascript" >returnDay();</script></div>
+</div>
+
 </body>
 </html>
