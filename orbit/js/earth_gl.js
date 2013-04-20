@@ -25,6 +25,7 @@ function Sleep( T ){
     } 
     return; 
 }
+var is_stop=false;
 function resume(){
     is_stop=true;
               
@@ -152,7 +153,7 @@ for(var i=0;i<controller.model.orbitList.length;i++){
                              orbit.y/earth_d,
                              orbit.z/earth_d
 			     );
-    console.log(i,orbit.x,orbit.y,orbit.z,orbit.earthDist,orbit.moonDist);
+    //console.log(i,orbit.x,orbit.y,orbit.z,orbit.earthDist,orbit.moonDist);
     //vect= new THREE.Vector3(i/2+0.5,i/2+0.5,i/2+0.5);
     
     linepoint.vertices.push( vect );
@@ -191,69 +192,99 @@ zpoints.vertices.push( new THREE.Vector3( 0, 0, -10 ) );
     controls.center = new THREE.Vector3(0, 0, 0);
     var baseTime = +new Date;
     
-          
+    
         
 //Airliner
-var ag = new THREE.SphereGeometry(0.5, 8, 8);
+var ag = new THREE.SphereGeometry(0.5, 20, 20);
 var am = new THREE.MeshPhongMaterial({
-	color: 0xffffff, specular: 0xcccccc,ambient: 0xffd400});
+	color: 0xffffff, specular: 0xcccccc,ambient: 0xffffff});
 var Airliner = new THREE.Mesh(ag, am);
     scene.add(Airliner);
     
     var bg = new THREE.SphereGeometry(0.5, 8, 8);
     var bm = new THREE.MeshPhongMaterial({
                                          color: 0xffffff, specular: 0xcccccc,ambient: 0x00ff00});
-    //var balloon = new THREE.Mesh(bg, bm)；
+    
+    var bl = new THREE.Mesh(bg, bm);
+    scene.add(bl);
     //scene.add(balloon);
-    //var fevent=new Array{1,1,1,1,1};
+    var Nevent=0;
     var fcount=0;
+    var limit=controller.model.orbitList.length;
+    var orbit_index=limit-2;
+    var koushin=1;
     function render() {
         requestAnimationFrame(render);
-        //var orbit = controller.model.orbitList[fcount];
-        //Air の位置更新
-        //Airliner.position = new THREE.Vector3(orbit.x,orbit.y,orbit.z);
-        
-        /*
-        if(is_stop==true){//バルーンの点滅
-                if()
-        }*/
-        
-        
-        // カメラの状態を更新
+         // カメラの状態を更新
         controls.update();
-      //Sleep(spf); //flame管理
+        /*if(is_stop==true){//バルーンの点滅
+            if()
+        }*/
+        if(koushin==1){
+        var orbit = controller.model.orbitList[orbit_index];
+        var orbit2= controller.model.orbitList[fcount];
+            //console.log(orbit2.earthDist);
+        Airliner.position = new THREE.Vector3(orbit.x/earth_d,orbit.y/earth_d,orbit.z/earth_d);
+            koushin=0;
+        }
+        
+        
+       
+     
         
     //earth.rotation.y = 0.3 * (+new Date - baseTime) / 1000;
             
     //イベント
-    //    controller.dispatchEvent("ISS");
-    //if(fevent[0]==0 && orbitpoints[fcount]. > 400){//ISS //距離式
-      //  fevent[0]=1;
-      /*  baloon.position=new Vector3(orbit.x,
+    //
+    if((Nevent<1 )&&(orbit2.earthDist > 400)){//ISS //距離式
+        Nevent++;
+        /*baloon.position=new Vector3(orbit.x,
                                     orbit.y,
                                     orbit.z);//balloonを位置へ
+         */
         //イベント読み込み
-        
+        console.log("ISS");
+        //controller.dispatchEvent("ISS");
         //Stop();
-        //
-    //}
+    }
         /*
-    else if(){//静止衛星軌道
+    else if(Nevent <2 && orbit2.earthDist > 35786){//静止衛星軌道
+         Nevent++;
+         console.log("seishi");
+        //controller.dispatchEvent("seishi");
+
+         //Stop();
     }
-    else if(){//時間半分
+    else if(Nevent<3 &&
+            ((orbit2.time-controller.model.orbitList[0]) >
+             (controller.model.orbitList[limit-2]-controller.model.orbitList[0])/2)){//時間半分
+            Nevent++;
+            console.log("hanbun");
+            //controller.dispatchEvent("hanbun");
+
+            //Stop();
     }
-    else if(){//地球と月が同サイズ
+    
+    else if(Nevent<4 ){//地球と月がだいたい同サイズ//Roughly
+            Nevent++;
+            //controller.dispatchEvent("ISS");
+            console.log("tobshi");
     }
-    else if(){//かぐやの軌道
-    }
-    */
+    else if((Nevent<5) && (orbit2.moonDist < 100)){//かぐやの軌道
+        Nevent++;
+        console.log("kaguya");
+        //Stop();
+    }*/
+    
     //index
    // controller.setCurrentTime(controller.model.)
     renderer.render(scene, camera);
-    //if((is_stop==false) && (fcount< orbitpoints.length)){
-            //fcount++;
-      //  }
-        
+        if(((+new Date - baseTime)>200*fcount) && (fcount <limit-2) && (is_stop==false)){
+            fcount++;
+            orbit_index--;
+            koushin=1;
+            //console.log(fcount,limit);
+        }
     };
     render();
     window.addEventListener('resize', function() {
