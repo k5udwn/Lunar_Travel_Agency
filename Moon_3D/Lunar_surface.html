@@ -1,0 +1,55 @@
+<html>
+<head>
+  <title>Lunar_surface</title>
+  <script type="text/javascript" src="https://www.google.com/jsapi"> </script>
+  <script type="text/javascript">
+    var ge;
+    var lookAt;
+    var angle = 80;
+    var high = 1;
+    var defaultRate = 1;
+    var speedyRate = 60*10; <!-- 10min/sec -->
+
+    <!-- ex  Apollo 11 site -->
+    var lat = 0.681400;
+    var lon = 23.460550;
+    var heading = -1.946649;
+
+    google.load("earth", "1");
+				   
+    function init() {
+      google.earth.createInstance('map3d', initCB, failureCB, {database: 'http://khmdb.google.com/?db=moon'});
+    }
+
+    function initCB(instance) {
+    ge = instance;
+
+    ge.getWindow().setVisibility(true);
+    ge.getTime().setRate(speedyRate);
+    
+    ge.getOptions().setFlyToSpeed(ge.SPEED_TELEPORT);
+    ge.getOptions().setScaleLegendVisibility(true);
+    ge.getOptions().setStatusBarVisibility(true);
+    ge.getSun().setVisibility(true);
+    ge.getNavigationControl().setVisibility(ge.VISIBILITY_AUTO);
+        
+    lookAt = ge.createLookAt('');
+    lookAt.set(lat, lon, 0, ge.ALTITUDE_RELATIVE_TO_GROUND, heading, angle, high);
+
+    ge.getView().setAbstractView(lookAt);
+  
+    
+    //addClickListener(moveToTarget,'target');   
+    }
+
+    function failureCB(errorCode) {
+    }
+
+    google.setOnLoadCallback(init);
+  </script>
+
+</head>
+<body>
+  <div id="map3d" style="height: 600px; width: 800px;"></div>
+</body>
+</html>
