@@ -10,9 +10,9 @@
 
 	<!-- Basic Page Needs
 	================================================== -->
-	<title>Ideaware - Web Design, Mobile Design, Interaction Design & iOS Development</title>
-	<meta name="description" content="We create websites and iOS apps. Web design with a great user experience. Beautiful iOS apps.">
-	<meta name="author" content="Ideaware Co">
+	<title>Fly Me to the Moon – Lunar Travel Agency</title>
+	<meta name="description" content="A Lunar Travel Agency.">
+	<meta name="author" content="Fly Me to the Moon">
 	<!--[if lt IE 9]>
 		<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
 	<![endif]-->
@@ -37,7 +37,7 @@
 	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
 	<script src="http://www.google.com/jsapi?key=AIzaSyDyacTiTY64PaPyxDJ0ed8Yk8ASfGF4Z3g" type="text/javascript"></script>
-    <link href="javascripts/styles/glDatePicker.default.css" rel="stylesheet" type="text/css">
+    <link href="javascripts/jquery/jquery.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 	
@@ -79,7 +79,8 @@
                     
 					<p>Depending on your destination, travel cost may change.</p>
                     <p class="size22">Departure date:</p>
-                    <input type="text" id="datepicker" />
+                    <div id="datepicker"></div>
+                    <input type="text" id="datepicker_value" />
 					<p>Due to lunar phasing constraints, some dates might not be available.</p>
 				</div>
 			</section>
@@ -243,16 +244,20 @@ a.src=document.location.protocol+"//dnn506yrbagrg.cloudfront.net/pages/scripts/0
 a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
 </script>
 
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script src="javascripts/glDatePicker.min.js"></script>
-    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-  	<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+	<script type="text/javascript" src="javascripts/jquery/jquery.js"></script>
+	<script type="text/javascript" src="javascripts/jquery/jquery.ui.js"></script>
+    
+    <script type="text/javascript">
+$().ready(function() {
 
-    <script>
-  $(function() {
-    $( "#datepicker" ).datepicker();
-  });
-  </script>
+$("#datepicker").datepicker({
+	onSelect: function(dateText, inst) { 
+		$("#datepicker_value").val(dateText);
+	}
+});
+
+});
+</script>
 
 	
 	<!-- End Document
