@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" hint="target=moon">
+  
+  
+  <Document>
+   
+    <Placemark>
+      <name>アポロ11号着陸地点</name>
+      <description>
+        <![CDATA[
+		<p>緯度:北緯0度　経度:東経23度<br/>
+			史上初の月面着陸を達成したアポロ11号が着陸した地点。<br/>
+			アポロ11号:<br/>
+            打ち上げ国名・機関:アメリカ/アメリカ航空宇宙局(NASA)<br/>
+            打ち上げ年月日:1969/7/16<br/>
+            帰還年月日:1969/7/14<br/>
+        ]]>
+      </description>
+      <Point>
+        <coordinates>23.463381,0.76001</coordinates>
+      </Point>
+    </Placemark>
+   
+    <Placemark>
+      <name>シュレーター峡谷</name>
+      <description>
+        <![CDATA[
+ 		<p>緯度:北緯26度　経度:西経51度<br/>
+			<br/>
+            長さ:160km 最大幅:11km 深さ:1km<br/>
+            月面上で最も大きい曲がりくねった谷。<br/>
+            峡谷の南側の始まりの部分は少し広く盛り上がっていてコブラの頭のような地形になっているのでコブラ・ヘッドと呼ばれている。<br/>
+        ]]>
+      </description>
+      <Point>
+        <coordinates>-50.48, 26.11</coordinates>
+      </Point>
+    </Placemark>
+   
+    <Placemark>
+      <name>モスクワの海</name>
+      <description>
+        <![CDATA[
+          <p>
+            緯度:北緯27度　経度:東経147度<br/>
+            直径:277km<br/>
+            月の裏側に位置しており、地球からは観察できない。<br/>
+            1959年にルナ3号が世界で初めて月の裏側を撮影した際に発見された。</a>
+        ]]>
+      </description>
+      <Point>
+        <coordinates>147.52,27.17</coordinates>
+      </Point>
+    </Placemark>
+   
+   
+  </Document>
+</kml>
