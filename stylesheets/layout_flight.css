@@ -224,4 +224,8 @@ body {
 
 #moonMap {
 	background-color: #ff000;
+	top: 100px;
+	width: 600px;
+	height: 580px;
+	border: none;
 }
