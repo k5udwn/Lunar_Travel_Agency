@@ -56,7 +56,7 @@ var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera(
 					 15, window.innerWidth / window.innerHeight);
 //camera.position = new THREE.Vector3(0, 16, 0);
-  camera.position = new THREE.Vector3(10, 1, -1.8);
+  camera.position = new THREE.Vector3(-10, 1, 2);
 //camera.lookAt(new THREE.Vector3(0, 0, 0));
         
         
@@ -122,8 +122,9 @@ var material = new THREE.MeshPhongMaterial({
         
 var earth = new THREE.Mesh(geometry, material);
 earth.doubleSided=true;
-earth.rotation.y=168.0;
-scene.add(earth);
+//earth.rotation.y=168.0;
+    earth.rotation.x=168.0;
+    scene.add(earth);
         
         
         
@@ -135,7 +136,7 @@ var material2 = new THREE.MeshPhongMaterial({
 var moon = new THREE.Mesh(geometry2, material2);
 //moon.position = new THREE.Vector3(-365037.0/earth_d,6386.0/earth_d,-569.0/earth_d);
 moon.position = new THREE.Vector3(377037.0/earth_d,0,0);
-    moon.rotation.y=180;
+    moon.rotation.y=12;
     scene.add(moon);
          
 //軌道を表示
@@ -197,7 +198,7 @@ zpoints.vertices.push( new THREE.Vector3( 0, 0, -10 ) );
     
         
 //Airliner
-var ag = new THREE.SphereGeometry(0.2, 20, 20);
+var ag = new THREE.SphereGeometry(0.05, 20, 20);
 var am = new THREE.MeshPhongMaterial({
 	color: 0xffffff, specular: 0xcccccc,ambient: 0xffffff});
 var Airliner = new THREE.Mesh(ag, am);
