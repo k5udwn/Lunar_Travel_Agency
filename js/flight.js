@@ -37,6 +37,10 @@ var lunartravel;
         };
         FlightController.prototype.receptionEvent = function (type) {
             var _this = this;
+            if(type == "end") {
+                this.showMoonMap();
+                return;
+            }
             this.showInfo(this.model.infomationList[type].src, this.model.infomationList[type].message);
             setTimeout(function () {
                 document.getElementById("orbitFrame")["contentWindow"].resume();
@@ -56,6 +60,17 @@ var lunartravel;
         };
         FlightController.prototype.hideInfo = function () {
             $("#info").hide(1);
+        };
+        FlightController.prototype.width = function () {
+            return $(window).width();
+        };
+        FlightController.prototype.height = function () {
+            return $(window).height();
+        };
+        FlightController.prototype.showMoonMap = function () {
+            $("#moonMap").attr("src", "moon_map/Route.html");
+            $("#moonMap").css("left", (this.width() - 600) / 2);
+            $("#moonMap").css("top", (this.width() - 580) / 2);
         };
         return FlightController;
     })();
