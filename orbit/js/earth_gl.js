@@ -55,9 +55,9 @@ var scene = new THREE.Scene();
 
 var camera = new THREE.PerspectiveCamera(
 					 15, window.innerWidth / window.innerHeight);
-camera.position = new THREE.Vector3(0, 16, 0);
-        
-camera.lookAt(new THREE.Vector3(0, 0, 0));
+//camera.position = new THREE.Vector3(0, 16, 0);
+  camera.position = new THREE.Vector3(10, 1, -1.8);
+//camera.lookAt(new THREE.Vector3(0, 0, 0));
         
         
 scene.add(camera);
@@ -115,7 +115,7 @@ for(var i=0; i<nstar;i++){
           
           
 
-var geometry = new THREE.SphereGeometry(1, 32, 32);
+var geometry = new THREE.SphereGeometry(0.5, 32, 32);
 var material = new THREE.MeshPhongMaterial({
         color: 0xffffff, specular: 0xcccccc, shininess:50, ambient: 0xffffff,
         map: THREE.ImageUtils.loadTexture('images/earth2.jpg') });
@@ -127,21 +127,23 @@ scene.add(earth);
         
         
         
-var geometry2 = new THREE.SphereGeometry(moon_r/earth_r, 32, 16);
+var geometry2 = new THREE.SphereGeometry((moon_r/earth_r)/2, 32, 16);
 var material2 = new THREE.MeshPhongMaterial({
 	color: 0xffffff, specular: 0xcccccc, shininess:50, ambient: 0xffffff,
 	map: THREE.ImageUtils.loadTexture('images/moon.png') });
         
 var moon = new THREE.Mesh(geometry2, material2);
-moon.position = new THREE.Vector3(-365037.0/earth_d,6386.0/earth_d,-569.0/earth_d);
-scene.add(moon);
+//moon.position = new THREE.Vector3(-365037.0/earth_d,6386.0/earth_d,-569.0/earth_d);
+moon.position = new THREE.Vector3(377037.0/earth_d,0,0);
+    moon.rotation.y=180;
+    scene.add(moon);
          
 //軌道を表示
 var point;
 var vect;
 var linepoint = new THREE.Geometry();
     var orbit;
-for(var i=0;i<controller.model.orbitList.length;i++){
+for(var i=0;i<controller.model.orbitList.length-1;i++){
     //for(var i=0;i<2;i++){
     //console.log(lines[i]);
     // 座標を作成
@@ -160,7 +162,7 @@ for(var i=0;i<controller.model.orbitList.length;i++){
 }
 line = new THREE.Line(
 		      linepoint,
-		      new THREE.LineBasicMaterial( { color: 0xffffff, opacity: 1.0, linewidth: 1 } )
+		      new THREE.LineBasicMaterial( { color: 0xffff00, opacity: 1.0, linewidth: 1 } )
 		      );
 scene.add( line );
 
@@ -172,14 +174,14 @@ xpoints.vertices.push( new THREE.Vector3( -10, 0, 0 ) );
 xpoints.vertices.push( new THREE.Vector3(  10, 0, 0 ) );
 linesMaterial = new THREE.LineBasicMaterial( {color: 0xff0000, linewidth: 1} );
 x_line= new THREE.Line(xpoints, linesMaterial);
-scene.add( x_line );
+//scene.add( x_line );
           
 var ypoints = new THREE.Geometry();
 ypoints.vertices.push( new THREE.Vector3( 0, -10, 0 ) );
 ypoints.vertices.push( new THREE.Vector3( 0,  10, 0 ) );
 linesMaterial = new THREE.LineBasicMaterial( {color: 0x00ff00, linewidth: 1} );
 y_line= new THREE.Line(ypoints, linesMaterial);
-scene.add( y_line );
+//scene.add( y_line );
           
 var zpoints = new THREE.Geometry();
 zpoints.vertices.push( new THREE.Vector3( 0, 0,  10 ) );
@@ -187,7 +189,7 @@ zpoints.vertices.push( new THREE.Vector3( 0, 0, -10 ) );
     linesMaterial = new THREE.LineBasicMaterial( {color: 0x0000ff, linewidth: 1} );
     z_line= new THREE.Line(zpoints, linesMaterial);
     
-    scene.add(z_line);
+  //  scene.add(z_line);
     var controls = new THREE.OrbitControls(camera);
     controls.center = new THREE.Vector3(0, 0, 0);
     var baseTime = +new Date;
@@ -195,15 +197,15 @@ zpoints.vertices.push( new THREE.Vector3( 0, 0, -10 ) );
     
         
 //Airliner
-var ag = new THREE.SphereGeometry(0.5, 20, 20);
+var ag = new THREE.SphereGeometry(0.2, 20, 20);
 var am = new THREE.MeshPhongMaterial({
 	color: 0xffffff, specular: 0xcccccc,ambient: 0xffffff});
 var Airliner = new THREE.Mesh(ag, am);
     scene.add(Airliner);
     
-    var bg = new THREE.SphereGeometry(0.5, 8, 8);
+    var bg = new THREE.SphereGeometry(0.2, 16, 16);
     var bm = new THREE.MeshPhongMaterial({
-                                         color: 0xffffff, specular: 0xcccccc,ambient: 0x00ff00});
+                                         color: 0xffffff, specular: 0xcccccc,ambient: 0xffD400});
     
     var bl = new THREE.Mesh(bg, bm);
     scene.add(bl);
@@ -212,22 +214,22 @@ var Airliner = new THREE.Mesh(ag, am);
     var fcount=0;
     var limit=controller.model.orbitList.length;
     var orbit_index=limit-2;
+    var fflash=0;
+    var ffflash=0;
     var koushin=1;
+    var fla=0;
     function render() {
         requestAnimationFrame(render);
          // カメラの状態を更新
         controls.update();
-        /*if(is_stop==true){//バルーンの点滅
-            if()
-        }*/
         if(koushin==1){
-        var orbit = controller.model.orbitList[orbit_index];
-        var orbit2= controller.model.orbitList[fcount];
+        var orbit2 = controller.model.orbitList[orbit_index];
+        var orbit= controller.model.orbitList[fcount];
             //console.log(orbit2.earthDist);
         Airliner.position = new THREE.Vector3(orbit.x/earth_d,orbit.y/earth_d,orbit.z/earth_d);
             koushin=0;
        
-     
+     controller.setCurrentTime(orbit.time);
         
     //earth.rotation.y = 0.3 * (+new Date - baseTime) / 1000;
             
@@ -235,10 +237,8 @@ var Airliner = new THREE.Mesh(ag, am);
     //
     if((Nevent==0 )&&(orbit2.earthDist > 400)){//ISS //距離式
         Nevent++;
-        /*baloon.position=new Vector3(orbit.x,
-                                    orbit.y,
-                                    orbit.z);//balloonを位置へ
-         */
+        bl.position=new THREE.Vector3(orbit.x,orbit.y,orbit.z);//balloonを位置へ
+        
         //イベント読み込み
         console.log("ISS");
         controller.dispatchEvent("ISS");
@@ -248,13 +248,14 @@ var Airliner = new THREE.Mesh(ag, am);
         Nevent++;
         console.log(fcount,"seishi");
         controller.dispatchEvent("seishi");
-        
+        bl.position=new THREE.Vector3(orbit.x,orbit.y,orbit.z);
         stop();
     }
 
     else if(Nevent ==2 &&
             (fcount > (limit-2)/2)){//時間半分
                 Nevent++;
+         bl.position=new THREE.Vector3(orbit.x,orbit.y,orbit.z);
                 console.log(fcount,"hanbun");
                 controller.dispatchEvent("hanbun");
                 stop();
@@ -264,27 +265,64 @@ var Airliner = new THREE.Mesh(ag, am);
     
     else if(Nevent==3 && orbit2.earthDist>earth_moon*4/5){//地球と月がだいたい同サイズ//Roughly
             Nevent++;
+         bl.position=new THREE.Vector3(orbit.x,orbit.y,orbit.z);
             controller.dispatchEvent("onaji");
             console.log(fcount,"onaji");
         stop();
     }
     else if((Nevent==4) && (orbit2.moonDist < 100)){//かぐやの軌道
         Nevent++;
+         bl.position=new THREE.Vector3(orbit.x,orbit.y,orbit.z);
         controller.dispatchEvent("kaguya");
         console.log("kaguya");
         stop();
     }
         }
-    //index
-   // controller.setCurrentTime(controller.model.)
-    renderer.render(scene, camera);
-        if(((+new Date - baseTime)>200*fcount) && (fcount <limit-2) && (is_stop==false)){
+        /*
+        //点滅する場合
+        if((Nevent>0)&&//イベントが一回でも発生
+           (is_stop==true)){
+            if((+new Date - baseTime) >200*fla){
+                ffflash=1;
+               
+                if(fflash==1){
+                    //サイズ大きく
+                    bl.scale.set( 2, 2, 2 );
+                    console.log(10);
+                    fflash=0;
+                }
+                else{
+                        //サイズ小さく
+                    bl.scale.set( 0.5, 0.5, 0.5 );
+                    fflash=1;
+                }
+            }
+        }
+        
+        if(ffflash==1 && is_stop==false){
+            bl.position=new Vector3(0,0,0);
+        }*/
+        //index
+        
+        renderer.render(scene, camera);
+        /*if(((+new Date - baseTime)>200*fcount) && (fcount <limit-2) && (is_stop==false)){
             fcount++;
             orbit_index--;
             koushin=1;
             //console.log(fcount,limit);
+        }*/
+        if((+new Date - baseTime)>200*fla){
+            fla++;
+            if((fcount <limit-2)&&(is_stop==false)){
+                fcount++;
+                orbit_index--;
+                koushin=1;
+                
+            }
         }
+        
     };
+    
     render();
     window.addEventListener('resize', function() {
                                 renderer.setSize(window.innerWidth, window.innerHeight);
