@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<title>経路</title>
+<div id="Arriv_Lat" title=0 />
+<div id="Arriv_Lon" title=0 />
+<div id="Dest_Lat" title=0.76001 />
+<div id="Dest_Lon" title=23.463381 />
+<script src="http://www.google.com/jsapi?key=ABQIAAAAYf0WeigmYScO6erMuuGYuRR0Kq9_EzkEqGqbhpV2Z4D6kCHD-BRdD8xNZfwSmTNm524g_Y3UiTpcSw" type="text/javascript"></script>
+<script src="initLatLon.js" type="text/javascript"></script>
+<script src="route.js" type="text/javascript"></script>
+<script src="getText.js" type="text/javascript"></script>
+<script src="button.js" type="text/javascript"></script>
+<script src="calculatedDistance.js" type="text/javascript"></script>
+<script src="PlaceMarker.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../stylesheets/base.css">
+	<link rel="stylesheet" href="../stylesheets/skeleton.css">
+	<link rel="stylesheet" href="../stylesheets/layout_flight.css">
+	<link rel="stylesheet" href="../stylesheets/fonts.css">
+<link href="./moon.css" rel="stylesheet" type="text/css" />
+</head>
+<body bgcolor="#000000" onload='init()' onload='initLatLon()' onload='getTextFile()'>
+<div id='map3d_container'>
+<div id='map3d' style='height: 100%; width: 100%;'></div>
+</div>
+<script type="text/javascript" >splitText();</script>
+<script type="text/javascript" >lookAtInit();</script>
+<form action="#">
+<input type="button" value="目的地ズーム" onclick="lookAtDestination()">
+<input type="button" value="着陸地点ズーム" onclick="lookAtArriv()">
+<input type="button" value="初期位置" onclick="lookAtInit()">
+</form>
+
+<div id="moon_details">
+	<div id="moon_details_left">Destination</div>
+    <div id="moon_details_right"><script type="text/javascript" >returnName();</script></div>
+    
+    <div id="moon_details_left">Location</div>
+    <div id="moon_details_right"><script type="text/javascript" >returnPlace();</script></div>
+    
+    <div id="moon_details_left">Distance from the point of arrival</div>
+    <div id="moon_details_right"><script type="text/javascript" >returnDest();</script></div>
+    
+    <div id="moon_details_left">Number of days required</div>
+    <div id="moon_details_right"><script type="text/javascript" >returnDay();</script></div>
+    
+    <div id="landing_button">
+    	<a href="#" class="button medium orange">Land!<span class="spritesheet arrowbottom"></span></a>
+    </div>
+</div>
+
+</body>
+</html>
