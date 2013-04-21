@@ -8,11 +8,30 @@
     var angle = 80;
     var high = 1;
     var defaultRate = 1;
-    var speedyRate = 60*10; <!-- 10min/sec -->
-
+    var speedyRate = 0*10; <!-- 10min/sec -->
+    var lat;
+    var lon;
+    
     <!-- ex  Apollo 11 site -->
-    var lat = 0.681400;
-    var lon = 23.460550;
+    //var lat = 0.681400;
+    //var lon = 23.460550;
+
+    <!-- from URL -->
+    <!-- should be called "...Lunar_surface.html?lat=**.****&lon=**.****" -->
+    var data = location.href.split("?")[1];
+    var data2 = data.split("&");
+
+    for(i in data2)
+    {
+    data3 = data2[i].split("=");
+    if(i==0)
+    lat = data3[1];
+    if(i==1)
+    lon = data3[1];
+    
+    }
+    alert(lat+" "+lon);
+
     var heading = -1.946649;
 
     google.load("earth", "1");
@@ -30,16 +49,15 @@
     ge.getOptions().setFlyToSpeed(ge.SPEED_TELEPORT);
     ge.getOptions().setScaleLegendVisibility(true);
     ge.getOptions().setStatusBarVisibility(true);
-    ge.getSun().setVisibility(true);
+    ge.getTime().getControl().setVisibility(ge.VISIBILITY_HIDE);
+    //ge.getSun().setVisibility(true);
     ge.getNavigationControl().setVisibility(ge.VISIBILITY_AUTO);
-        
+
     lookAt = ge.createLookAt('');
-    lookAt.set(lat, lon, 0, ge.ALTITUDE_RELATIVE_TO_GROUND, heading, angle, high);
+    lookAt.set(parseFloat(lat), parseFloat(lon), 0, ge.ALTITUDE_RELATIVE_TO_GROUND, heading, angle, high);
 
     ge.getView().setAbstractView(lookAt);
   
-    
-    //addClickListener(moveToTarget,'target');   
     }
 
     function failureCB(errorCode) {
