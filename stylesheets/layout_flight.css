@@ -167,13 +167,13 @@ body {
 }
 
 #info_picture {
-	background: url('../img/darkdenim3.png');
+	background: url('../img/nami.png');
 	width: 200px;
 	float:left;
 	text-align: right;
 	bottom: 0px;
 	top: 0px;
-	box-shadow: 0px 0px 10px rgba(255,255,255,0.3);
+	border: rgba(30,30,30,1) 1px solid;
 }
 
 #info_picture img {
@@ -186,7 +186,7 @@ body {
 }
 
 #info_date {
-	background: url('../img/darkdenim3.png');
+	background: url('../img/nami.png');
 	text-align: center;
 	top: 0px;
 	height: 40px;
@@ -194,18 +194,18 @@ body {
 	left: 210px;
 	padding-top: 10px;
 	padding-bottom: 10px;
-	box-shadow: 0px 0px 10px rgba(255,255,255,0.3);
+	border: rgba(30,30,30,1) 1px solid;
 }
 
 #info_description {
-	background: url('../img/darkdenim3.png');
+	background: url('../img/nami.png');
 	height: 130px;
 	top: 70px;
 	bottom: 0px;
 	left: 210px;
 	right: 0px;
 	float: left;
-	box-shadow: 0px 0px 10px rgba(255,255,255,0.3);
+	border: rgba(30,30,30,1) 1px solid;
 }
 
 #info_description h5 {

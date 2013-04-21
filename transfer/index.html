@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+
+<head>
+
+	<!-- Basic Page Needs
+	================================================== -->
+	<title>Fly Me to the Moon – Lunar Travel Agency</title>
+	<meta name="description" content="A Lunar Travel Agency.">
+	<meta name="author" content="Fly Me to the Moon">
+	<!--[if lt IE 9]>
+		<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+	<![endif]-->
+
+
+	<script type="text/javascript">
+	function test_orbit() {
+		var mu_earth = 398600; // km^3×s^-1
+		var mu_moon = 4903;
+		var M_0 = 0;
+		var t_0 = 0; // s
+		var D = 385000; // km
+		var lambda_1 = 20*Math.PI/180; // rad
+		var R_S = D*Math.pow((mu_moon/mu_earth),2/5); // km
+		var r_1 = Math.sqrt(Math.pow(D,2)+Math.pow(R_S,2)-2*D*R_S*Math.cos(lambda_1)); // km
+		var v_1 = 0.25; // km/s
+		
+		
+		var r_1_x = [ D-R_S*Math.cos(lambda_1), R_S*Math.sin(lambda_1)];
+		
+		
+		
+		return (r_1_x);
+		}
+	</script>
+   
+</head>
+<body>
+	
+	
+	
+			
+
+			IN
+            
+	<script>
+document.write(test_orbit())
+</script>
+    
+    OUT
+		
+
+	
+	<!-- End Document
+	================================================== -->
+	</body>
+</html>
+<!-- Localized -->
