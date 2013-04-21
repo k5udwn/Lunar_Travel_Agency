@@ -154,35 +154,38 @@ body {
 	right: 0px;
 	top: 100px;
 	bottom: 0px;
-	width: 100%
+	width: 100%;
+	margin: 0px 0px;
 }
 
 #info {
-	/*background: #0C6;*/
-	left: 350px;
-	right: 350px;
+	background: #0C6;
+	height: 206px;
+	width: 1000px;
 	bottom: 70px;
 	color: #FFF;
-	height: 200px;
+	left: 50%;
+	margin: 0 0 0 -500px;
 }
 
 #info_picture {
 	background: url('../img/nami.png');
+	height: 200px;
 	width: 200px;
 	float:left;
 	text-align: right;
 	bottom: 0px;
 	top: 0px;
-	border: rgba(30,30,30,1) 1px solid;
+	border: rgba(25,25,25,1) 3px dashed;
 }
 
 #info_picture img {
-	width: 180px;
-	height: 180px;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	padding-left: 10px;
-	padding-right: 10px;
+	width: 200px;
+	height: 200px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
 }
 
 #info_date {
@@ -194,7 +197,7 @@ body {
 	left: 210px;
 	padding-top: 10px;
 	padding-bottom: 10px;
-	border: rgba(30,30,30,1) 1px solid;
+	border: rgba(25,25,25,1) 3px dashed;
 }
 
 #info_description {
@@ -205,7 +208,7 @@ body {
 	left: 210px;
 	right: 0px;
 	float: left;
-	border: rgba(30,30,30,1) 1px solid;
+	border: rgba(25,25,25,1) 3px dashed;
 }
 
 #info_description h5 {
