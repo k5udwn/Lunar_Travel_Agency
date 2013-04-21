@@ -13,23 +13,23 @@
     var lon;
     
     <!-- ex  Apollo 11 site -->
-    //var lat = 0.681400;
-    //var lon = 23.460550;
+    var lat = 0.681400;
+    var lon = 23.460550;
 
     <!-- from URL -->
     <!-- should be called "...Lunar_surface.html?lat=**.****&lon=**.****" -->
-    var data = location.href.split("?")[1];
-    var data2 = data.split("&");
+    //var data = location.href.split("?")[1];
+    //var data2 = data.split("&");
 
-    for(i in data2)
-    {
-    data3 = data2[i].split("=");
-    if(i==0)
-    lat = data3[1];
-    if(i==1)
-    lon = data3[1];
+    //for(i in data2)
+    //{
+    //data3 = data2[i].split("=");
+    //if(i==0)
+    //lat = data3[1];
+    //if(i==1)
+    //lon = data3[1];
     
-    }
+    //}
     //alert(lat+" "+lon);
 
     var heading = -1.946649;
@@ -67,7 +67,7 @@
   </script>
 
 </head>
-<body>
-  <div id="map3d" style="height: 600px; width: 800px;"></div>
+  <body style="margin:0px;padding:0px;">
+  <div id="map3d" style="height: 600px; width: 580px;"></div>
 </body>
 </html>
