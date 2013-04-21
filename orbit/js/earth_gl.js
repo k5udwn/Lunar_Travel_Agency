@@ -282,6 +282,8 @@ function earth_gl(){
         if( fcount==limit-3){
             console.log("end");
              controller.dispatchEvent("end");
+            stop();
+            fcount++;
         }
         /*
          //点滅する場合
