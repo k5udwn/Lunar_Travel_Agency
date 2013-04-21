@@ -132,20 +132,31 @@ body {
 ================================================== */
 
 #header {
-	background: url(../images/icn/logo_flight.png), url(../img/darkdenim3.png) ;
-	background-repeat: no-repeat, repeat ;
-	background-position: left, center ;
-	height: 150px;
-	text-align: right;
+	background: url(../img/darkdenim3.png) ;
+	background-repeat: repeat ;
+	background-position: center ;
 	top: 0px;
 	height: 100px;
 	left: 0px;
 	right: 0px;
-	padding-right: 40px;
+	
+}
+
+#header a {
+	height: 100px;
+	width: 320px;
+	background: url(../images/icn/logo_flight.png) ;
+	background-repeat: no-repeat ;
+	background-position: left ;
+	float: left;
+	text-indent: -999px;
 }
 
 #header h1 {
+	text-align: right;
 	font-size: 60px;
+	padding-right: 40px;
+	float: right;
 }
 
 #orbit {
@@ -221,11 +232,28 @@ body {
 	position : absolute;
 }
 
-
 #moonMap {
+	display: none;
 	background-color: #ff000;
-	top: 100px;
+	left: 50%;
+	margin: 0 0 0 -300px;
+	top: 150px;
 	width: 600px;
-	height: 580px;
-	border: none;
+	height: 640px;
+	border: rgba(50,50,50,0.4) 2px solid;
+	z-index:20;
+	box-shadow: 0px 0px 50px rgba(255,153,0,0.5);
+}
+
+#moonDetail {
+	display: block;
+	background-color: #ff000;
+	left: 50%;
+	margin: 0 0 0 -300px;
+	top: 150px;
+	width: 600px;
+	height: 640px;
+	border: rgba(50,50,50,0.4) 2px solid;
+	z-index:20;
+	box-shadow: 0px 0px 50px rgba(255,153,0,0.5);
 }
