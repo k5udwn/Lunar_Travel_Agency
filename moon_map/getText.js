@@ -95,7 +95,7 @@ lon = eval(lon);
 //*****目的地にマーカーを置く*****
 placemark0 = ge.createPlacemark('');
 var icon = ge.createIcon('');
-icon.setHref('http://localhost/pin2.png');
+icon.setHref('http://localhost/moon_map/image/pin2.png');
 var style = ge.createStyle(''); //create a new style
 style.getIconStyle().setIcon(icon); //apply the icon to the style
 style.getIconStyle().setScale(3.0);

@@ -46,7 +46,7 @@ displayPlace();
 //*****到着地にマーカーを置く*****
 var placemark0 = ge.createPlacemark('');
 var icon = ge.createIcon('');
-icon.setHref('http://localhost/shuttle.png');
+icon.setHref('http://localhost/moon_map/image/shuttle.png');
 var style = ge.createStyle(''); //create a new style
 style.getIconStyle().setIcon(icon); //apply the icon to the style
 style.getIconStyle().setScale(3.0);
@@ -64,7 +64,7 @@ ge.getFeatures().appendChild(placemark0);
 //*****目的地にマーカーを置く*****
 placemark0 = ge.createPlacemark('');
 var icon = ge.createIcon('');
-icon.setHref('http://localhost/man.png');
+icon.setHref('http://localhost/moon_map/image/man.png');
 var style = ge.createStyle(''); //create a new style
 style.getIconStyle().setIcon(icon); //apply the icon to the style
 style.getIconStyle().setScale(3.0);
