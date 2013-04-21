@@ -25,8 +25,10 @@ var lunartravel;
             this.model.targetID = lunartravel.Utils.getURLQuery().targetID;
             $(function () {
                 _this.windowInit();
+                $("#info").hide();
             });
             window.addEventListener("message", function (e) {
+                console.log("topWindow Recieve eventType : " + e.data);
                 _this.receptionEvent(e.data);
             });
         }
@@ -34,8 +36,12 @@ var lunartravel;
             this.setHeader();
         };
         FlightController.prototype.receptionEvent = function (type) {
-            console.log("kitaze");
+            var _this = this;
             this.showInfo(this.model.infomationList[type].src, this.model.infomationList[type].message);
+            setTimeout(function () {
+                document.getElementById("orbitFrame")["contentWindow"].resume();
+                _this.hideInfo();
+            }, 3000);
         };
         FlightController.prototype.setHeader = function () {
             $("#header h1").text(this.model.getCurrentTitle());
@@ -46,6 +52,10 @@ var lunartravel;
         FlightController.prototype.showInfo = function (imageSrc, message) {
             $("#info_picture img").attr("src", imageSrc);
             $("#info_description h5").text(message);
+            $("#info").show(1);
+        };
+        FlightController.prototype.hideInfo = function () {
+            $("#info").hide(1);
         };
         return FlightController;
     })();
@@ -57,9 +67,21 @@ var lunartravel;
                     src: "https://edu.jaxa.jp/moon_20101221/shared/images/eclipse_anime.gif",
                     message: "A lunar eclipse is a phenomenon that occurs because the Moon enters the Earth's shadow. There is a sun on the other side of the shadow of the earth, the sun, earth, moon are listed in one straight line. Month at this time is the full moon. And orbit the moon and the earth's orbit around the Sun turns around the Earth It's not a lunar eclipse every full moon, ..."
                 },
-                NNS: {
+                seishi: {
                     src: "http://upload.wikimedia.org/wikipedia/commons/thumb/6/60/ISSFinalConfigEnd2006.jpg/240px-ISSFinalConfigEnd2006.jpg",
                     message: "(International Ame-chu station, International Space Station, abbreviation: ISS) International Space Station is a space station that is under construction United States, Russia, Japan, the European Space Agency and Canada (ESA) with the cooperation. It is a huge manned facility for making observations of the universe and Earth, a variety of research and experiments using the space environment. (About 27,700 km per hour) about 7.7km per second to the Earth's equator at an angle of 51.6 degrees if you are"
+                },
+                hanbun: {
+                    src: "https://edu.jaxa.jp/moon_20101221/shared/images/eclipse_anime.gif",
+                    message: "A lunar eclipse is a phenomenon that occurs because the Moon enters the Earth's shadow. There is a sun on the other side of the shadow of the earth, the sun, earth, moon are listed in one straight line. Month at this time is the full moon. And orbit the moon and the earth's orbit around the Sun turns around the Earth It's not a lunar eclipse every full moon, ..."
+                },
+                onaji: {
+                    src: "http://upload.wikimedia.org/wikipedia/commons/thumb/6/60/ISSFinalConfigEnd2006.jpg/240px-ISSFinalConfigEnd2006.jpg",
+                    message: "(International Ame-chu station, International Space Station, abbreviation: ISS) International Space Station is a space station that is under construction United States, Russia, Japan, the European Space Agency and Canada (ESA) with the cooperation. It is a huge manned facility for making observations of the universe and Earth, a variety of research and experiments using the space environment. (About 27,700 km per hour) about 7.7km per second to the Earth's equator at an angle of 51.6 degrees if you are"
+                },
+                kaguya: {
+                    src: "https://edu.jaxa.jp/moon_20101221/shared/images/eclipse_anime.gif",
+                    message: "A lunar eclipse is a phenomenon that occurs because the Moon enters the Earth's shadow. There is a sun on the other side of the shadow of the earth, the sun, earth, moon are listed in one straight line. Month at this time is the full moon. And orbit the moon and the earth's orbit around the Sun turns around the Earth It's not a lunar eclipse every full moon, ..."
                 }
             };
             this.headerTitle = [

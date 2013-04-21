@@ -1,4 +1,5 @@
 ///<reference path='jquery.d.ts' />
+declare var resume: Function;
 module lunartravel {
 
     export class TourController {
@@ -13,13 +14,16 @@ module lunartravel {
             }
         }
 
+
         setCurrentTime(time: Date): void {
 
         }
 
         dispatchEvent(type: string): void {
-            window.top.postMessage(type, this.model.domain);
+            window.top.postMessage(type, window.location.protocol + "//" + window.location.host);
         }
+
+
 
         showInfo(imageSrc: string, message: string): void {
 
@@ -35,7 +39,6 @@ module lunartravel {
     }
 
     export class TourModel {
-        domain: string = "http://localhost/";
         targetPointLatLang: LatLng;
         targetName: string;
         targetID: string;

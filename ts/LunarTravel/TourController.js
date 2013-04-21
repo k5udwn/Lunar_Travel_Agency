@@ -1,4 +1,3 @@
-///<reference path='jquery.d.ts' />
 var lunartravel;
 (function (lunartravel) {
     var TourController = (function () {
@@ -14,7 +13,7 @@ var lunartravel;
         TourController.prototype.setCurrentTime = function (time) {
         };
         TourController.prototype.dispatchEvent = function (type) {
-            window.top.postMessage(type, this.model.domain);
+            window.top.postMessage(type, window.location.protocol + "//" + window.location.host);
         };
         TourController.prototype.showInfo = function (imageSrc, message) {
         };
@@ -29,9 +28,7 @@ var lunartravel;
     })();
     lunartravel.TourController = TourController;    
     var TourModel = (function () {
-        function TourModel() {
-            this.domain = "http://localhost/";
-        }
+        function TourModel() { }
         TourModel.prototype.loadOrbit = function (fileName) {
             var _this = this;
             var url = this.apiDir + fileName + ".orbit";
