@@ -200,7 +200,7 @@ zpoints.vertices.push( new THREE.Vector3( 0, 0, -10 ) );
 //Airliner
 var ag = new THREE.SphereGeometry(0.05, 20, 20);
 var am = new THREE.MeshPhongMaterial({
-	color: 0xffffff, specular: 0xcccccc,ambient: 0xffffff});
+	color: 0xffffff, specular: 0xcccccc,ambient: 0xffffff,map: THREE.ImageUtils.loadTexture('images/shuttle1-2.png')});
 var Airliner = new THREE.Mesh(ag, am);
     scene.add(Airliner);
     
@@ -232,7 +232,7 @@ var Airliner = new THREE.Mesh(ag, am);
        
      controller.setCurrentTime(orbit.time);
         
-    //earth.rotation.y = 0.3 * (+new Date - baseTime) / 1000;
+    earth.rotation.y = 0.3 * (+new Date - baseTime) / 1000;
             
     //イベント
     //
