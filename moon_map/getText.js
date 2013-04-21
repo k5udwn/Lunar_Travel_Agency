@@ -92,7 +92,6 @@ i+=5;
 lat =eval(lat);
 lon = eval(lon);
 
-if(lat <= MaxLat && lat >= MinLat && lon <= MaxLon && lon >= MinLon){
 //*****目的地にマーカーを置く*****
 placemark0 = ge.createPlacemark('');
 var icon = ge.createIcon('');
@@ -100,9 +99,8 @@ icon.setHref('http://localhost/pin2.png');
 var style = ge.createStyle(''); //create a new style
 style.getIconStyle().setIcon(icon); //apply the icon to the style
 style.getIconStyle().setScale(3.0);
-placemark0.setStyleSelector(style); //apply the style to the placemark
-document.write(URL);
-placemark0.setDescription(URL);
+placemark0.setStyleSelector(style); //apply the style to the placemark;
+placemark0.setDescription(name + "</br>" + report + "</br>" + url) ;
 var point2 = ge.createPoint('');
 point2.setLatitude(lat);
 point2.setLongitude(lon);
@@ -110,7 +108,6 @@ placemark0.setGeometry(point2);
 placemark0.setVisibility(ge.VISIBILITY_SHOW);
 ge.getFeatures().appendChild(placemark0);
 //*****************************
-}
 }
 }
 

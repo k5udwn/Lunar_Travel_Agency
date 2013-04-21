@@ -52,7 +52,7 @@ style.getIconStyle().setIcon(icon); //apply the icon to the style
 style.getIconStyle().setScale(3.0);
 placemark0.setStyleSelector(style); //apply the style to the placemark
 placemark0.setName("");
-placemark0.setDescription('着陸地点');
+placemark0.setDescription('Landing point');
 var point = ge.createPoint('');
 point.setLatitude(Arriv_Lat);
 point.setLongitude(Arriv_Lon);
@@ -70,7 +70,7 @@ style.getIconStyle().setIcon(icon); //apply the icon to the style
 style.getIconStyle().setScale(3.0);
 placemark0.setStyleSelector(style); //apply the style to the placemark
 placemark0.setName("");
-placemark0.setDescription('目的地:</br>' + returnValue());
+placemark0.setDescription('Destination:</br>' + returnValue());
 var point2 = ge.createPoint('');
 point2.setLatitude(Dest_Lat);
 point2.setLongitude(Dest_Lon);
