@@ -68,9 +68,8 @@ var lunartravel;
             return $(window).height();
         };
         FlightController.prototype.showMoonMap = function () {
-            $("#moonMap").attr("src", "moon_map/Route.html");
-            $("#moonMap").css("left", (this.width() - 600) / 2);
-            $("#moonMap").css("top", (this.width() - 580) / 2);
+            $("#moonMap").css("display", "block");
+            $("#moonMapFrame").attr("src", "moon_map/Route.html");
         };
         return FlightController;
     })();
