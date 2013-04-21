@@ -85,9 +85,9 @@ var lunartravel;
                 }
             };
             this.headerTitle = [
-                "Houston > Moon Crater", 
-                "Houston > Moon Sea", 
-                "Houston > Moon Valley"
+                "Kennedy Space Center > Sea of Tranquility", 
+                "Kennedy Space Center > Ocean of Storms", 
+                "Kennedy Space Center > Fra Mauro"
             ];
         }
         FlightModel.prototype.getCurrentTitle = function () {
