@@ -18,6 +18,10 @@
   <ItemGroup>
     <Content Include="app.css" />
     <Content Include="default.htm" />
+    <TypeScriptCompile Include="IndexController.ts" />
+    <Content Include="IndexController.js">
+      <DependentUpon>IndexController.ts</DependentUpon>
+    </Content>
     <Content Include="Utils.js">
       <DependentUpon>Utils.ts</DependentUpon>
     </Content>
@@ -78,6 +82,7 @@
   <Import Project="$(VSToolsPath)\TypeScript\Microsoft.TypeScript.targets" />
   <PropertyGroup>
     <PostBuildEvent>tsc $(ProjectDir)\tour.ts -out ../../../js/tour.js
-tsc $(ProjectDir)\FlightController.ts -out ../../../js/flight.js</PostBuildEvent>
+tsc $(ProjectDir)\FlightController.ts -out ../../../js/flight.js
+tsc $(ProjectDir)\IndexController.ts -out ../../../js/index.js</PostBuildEvent>
   </PropertyGroup>
 </Project>

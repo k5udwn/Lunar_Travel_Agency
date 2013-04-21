@@ -41,6 +41,7 @@
 	<link href="css/datepicker.css" rel="stylesheet" type="text/css"/>	
 	<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
 	<script type="text/javascript" src="js/jquery-ui-1.8.18.custom.min.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
 	<script type="text/javascript">
 		$(function(){
 			$('#datepicker').datepicker({
@@ -118,22 +119,15 @@
 				<div class="par60 pmb34">
 					<h3>Book A FLight</h3>
 					<p class="size22">Please choose your destination:</p>
-                    <p><FORM>
-                    <SELECT name="nom" size="1">
-                    <OPTION>lundi
-                    <OPTION>mardi
-                    <OPTION>mercredi
-                    <OPTION>jeudi
-                    <OPTION>vendredi
-                    </SELECT>
-                    </FORM></p>
-                    <p align="left"><div id="dd" class="wrapper-dropdown-5" tabindex="1" align="left">Sea of Tranquility
+                    <p align="left">
+                    	<div id="dd" class="wrapper-dropdown-5" tabindex="1" align="left">
+                    		<span id="dropValue">Sea of Tranquility</span>
 						<ul class="dropdown">
-							<li><a><i class=""></i>Ocean of Storms</a></li>
-							<li><i class=""></i>Fra Mauro</li>
-							<li><a href="#"><i class=""></i>Hadley Rille</a></li>
-                            <li><a href="#"><i class=""></i>Descartes Highlandse</a></li>
-                            <li><a href="#"><i class=""></i>Taurus-Littrow</a></li>
+							<li><a style="cursor: hand"><i class=""></i>Ocean of Storms</a></li>
+							<li><a style="cursor: hand"><i class=""></i>Fra Mauro</a></li>
+							<li><a style="cursor: hand"><i class=""></i>Hadley Rille</a></li>
+                            <li><a style="cursor: hand"><i class=""></i>Descartes Highlandse</a></li>
+                            <li><a style="cursor: hand"><i class=""></i>Taurus-Littrow</a></li>
 						</ul>
 					</div></p>
 					<p>Depending on your destination, travel cost may change.</p>
